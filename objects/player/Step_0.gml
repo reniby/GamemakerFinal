@@ -5,16 +5,29 @@ if keyboard_check(ord("A")) && x > 35 {
 	x -= 5;
 	sx = -3;
 }
-if keyboard_check(ord("W")) && y > 20{
-	y -= 5;
-}
-if keyboard_check(ord("S")) && y < room_height - 80 {
-	y += 5;
-}
 if keyboard_check(ord("D")) && x < room_width - 40 {
 	x += 5;
 	sx = 3;
 }
+
+if room == MainRoom {
+	if keyboard_check(ord("W")) && y > 20{
+		y -= 5;
+	}
+	if keyboard_check(ord("S")) && y < room_height - 80 {
+		y += 5;
+	}
+}
+else if room == CatRoom {
+	if keyboard_check(ord("W")) && y > room_height/2 + 20{
+		y -= 5;
+	}
+	if keyboard_check(ord("S")) && y < room_height - 80 {
+		y += 5;
+	}
+}
+
+
 if mouse_check_button_pressed(mb_left) {
 	if (global.text == 5)
 		global.text = 6;
