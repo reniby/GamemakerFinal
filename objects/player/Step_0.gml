@@ -35,6 +35,8 @@ if mouse_check_button_pressed(mb_left) {
 		global.text = 7;
 	else if (global.text == 3) && global.haveTreasure == true
 		global.text = 8;
+	else if (global.text == 13)
+		global.text = 14;
 	else if (global.text != 0)
 		global.text = 0;
 	
@@ -52,4 +54,20 @@ if mouse_check_button_pressed(mb_left) {
 		global.haveGlasses = true;
 		sprite_delete(spr_glasses);
     }
+	
+	//---------------------------------------------------------------------------
+	
+	if collision_point(mouse_x, mouse_y, cat1, true, true) { //Arguments are (x, y, obj, prec, notme)
+        global.text = 10;
+    }
+	if collision_point(mouse_x, mouse_y, cat2, true, true) { //Arguments are (x, y, obj, prec, notme)
+        global.text = 11;
+    }
+	if collision_point(mouse_x, mouse_y, cat3, true, true) { //Arguments are (x, y, obj, prec, notme)
+        global.text = 12;
+    }
+	if collision_point(mouse_x, mouse_y, scruff2, true, true) { //Arguments are (x, y, obj, prec, notme)
+        global.text = 13;
+    }
+	
 }

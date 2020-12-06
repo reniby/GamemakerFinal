@@ -17,22 +17,30 @@ if (global.catUnlocked) && room == MainRoom {
 }
 
 if (global.text != 0){
-	draw_set_colour(c_orange);
-	draw_rectangle(370, 620, 1000, 730, false);
-	draw_set_colour(c_black);
-	draw_rectangle(370, 620, 1000, 730, true);
+	if room == MainRoom {
+		draw_set_colour(c_orange);
+		draw_rectangle(370, 620, 1000, 730, false);
+		draw_set_colour(c_black);
+		draw_rectangle(370, 620, 1000, 730, true);
+	}
+	else if room == CatRoom {
+		draw_set_colour(c_orange);
+		draw_rectangle(370, 70, 1000, 160, false);
+		draw_set_colour(c_black);
+		draw_rectangle(370, 70, 1000, 160, true);
+	}
 	
 	if (global.text == 1)
 		draw_text(450, 650, "I need a key to open this sewer");
 		
-	if ((global.text == 2) && (global.haveGlasses = true) || global.text ==5) {
+	else if ((global.text == 2) && (global.haveGlasses = true) || global.text ==5) {
 		draw_text(450, 650, "You found my glasses!");
 		global.text = 5;
 	}
 	else if (global.text == 2) && (global.haveGlasses = false)
 		draw_text(450, 650, "I can't find my glasses");
 		
-	if (global.text == 3) && global.haveTreasure == false
+	else if (global.text == 3) && global.haveTreasure == false
 		draw_text(450, 650, "You gotta bring me treasure if you wanna pass");
 		
 	else if (global.text == 3) && global.haveTreasure == true {
@@ -44,7 +52,6 @@ if (global.text != 0){
 		sprite_delete(spr_scruff);
 		draw_text(450, 650, "*New area unlocked*");
 		global.catUnlocked = true;
-		//create warp
 	}
 		
 		
@@ -62,6 +69,25 @@ if (global.text != 0){
 		sprite_delete(kneelingAnimation);
 		global.dropNecklace = 2;
 	}
+	
+	
+	
+	if (global.text == 10) {
+		draw_text(450, 100, "I lost my compass in the grass fields to the west, \nwhich way should I go?");
+	}
+	if (global.text == 11) {
+		draw_text(450, 100, "I need to make a meeting before the sun sets at 6:35, \nwhich direction is the grass field?");
+	}
+	if (global.text == 12) {
+		draw_text(450, 100, "I’m meeting my buddy at the sewer a bit north of here \nat dusk, what time does the sun set?");
+	}
+	if (global.text == 13) {
+		draw_text(450, 100, "The treasure room behind me might have something that can \nhelp you, but not just anyone can enter.");
+	}
+	if (global.text == 14) {
+		draw_text(450, 100, "Help out all my friends here to gain their trust, \nthen I'm sure you'll be welcomed as one of us");
+	}
+	
 }
 
 
