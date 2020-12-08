@@ -25,9 +25,9 @@ if (global.text != 0){
 	}
 	else if room == CatRoom {
 		draw_set_colour(c_orange);
-		draw_rectangle(370, 70, 1000, 160, false);
+		draw_rectangle(370, 60, 1000, 150, false);
 		draw_set_colour(c_black);
-		draw_rectangle(370, 70, 1000, 160, true);
+		draw_rectangle(370, 60, 1000, 150, true);
 	}
 	
 	if (global.text == 1)
@@ -73,19 +73,107 @@ if (global.text != 0){
 	
 	
 	if (global.text == 10) {
-		draw_text(450, 100, "I lost my compass in the grass fields to the west, \nwhich way should I go?");
+		draw_text(450, 85, "I lost my compass in the grass fields to the west, \nwhich way should I go to get it back?");
+		draw_set_colour(c_orange);
+		draw_rectangle(370, 160, 1000, 285, false);
+		draw_set_colour(c_black);
+		draw_rectangle(370, 160, 1000, 285, true);
+		
+		draw_text(620, 175, "(Click one)");
+		draw_text(500, 215, "Up");
+		draw_text(600, 215, "Down");
+		draw_text(700, 215, "Left");
+		draw_text(800, 215, "Right");
+		draw_text(620, 255, "I'm not sure..");
 	}
 	if (global.text == 11) {
-		draw_text(450, 100, "I need to make a meeting before the sun sets at 6:35, \nwhich direction is the grass field?");
+		draw_text(450, 85, "I need to make a meeting before the sun sets at 6:35, \nwhich direction is the grass field?");
+		draw_set_colour(c_orange);
+		draw_rectangle(370, 160, 1000, 285, false);
+		draw_set_colour(c_black);
+		draw_rectangle(370, 160, 1000, 285, true);
+		
+		draw_text(620, 175, "(Click one)");
+		draw_text(500, 215, "North");
+		draw_text(600, 215, "South");
+		draw_text(700, 215, "East");
+		draw_text(800, 215, "West");
+		draw_text(620, 255, "I'm not sure..");
 	}
 	if (global.text == 12) {
-		draw_text(450, 100, "I’m meeting my buddy at the sewer a bit north of here \nat dusk, what time does the sun set?");
+		draw_text(450, 85, "I’m meeting my buddy at the sewer a bit north of here \nat dusk, what time does the sun set?");
+		draw_set_colour(c_orange);
+		draw_rectangle(370, 160, 1000, 285, false);
+		draw_set_colour(c_black);
+		draw_rectangle(370, 160, 1000, 285, true);
+		
+		draw_text(620, 175, "(Click one)");
+		draw_text(500, 215, "4:51");
+		draw_text(600, 215, "7:23");
+		draw_text(700, 215, "6:35");
+		draw_text(800, 215, "8:01");
+		draw_text(620, 255, "I'm not sure..");
 	}
+	
+	if (global.text == 50) { //2
+		draw_set_colour(c_orange);
+		draw_rectangle(370, 160, 1000, 285, false);
+		draw_set_colour(c_black);
+		draw_rectangle(370, 160, 1000, 285, true);
+		if (response[4] == 1)
+			draw_text(450, 85, "That's ok...");
+		else if (response[1] == 1) {
+			draw_text(450, 85, "Yes!! Thank you!!");
+			global.catAnswers[0] = 1;
+		}
+		else
+			draw_text(450, 85, "I'm not sure about that...");
+		
+	}
+	else if (global.text == 51) { //4
+		draw_set_colour(c_orange);
+		draw_rectangle(370, 160, 1000, 285, false);
+		draw_set_colour(c_black);
+		draw_rectangle(370, 160, 1000, 285, true);
+		if (response[4] == 1)
+			draw_text(450, 85, "That's ok...");
+		else if (response[3] == 1) {
+			draw_text(450, 85, "Yes!! Thank you!!");
+			global.catAnswers[1] = 1;
+		}
+		else
+			draw_text(450, 85, "I'm not sure about that...");
+	}
+	else if (global.text == 52) { //3
+		draw_set_colour(c_orange);
+		draw_rectangle(370, 160, 1000, 285, false);
+		draw_set_colour(c_black);
+		draw_rectangle(370, 160, 1000, 285, true);
+		if (response[4] == 1)
+			draw_text(450, 85, "That's ok...");
+		else if (response[2] == 1) {
+			draw_text(450, 85, "Yes!! Thank you!!");
+			global.catAnswers[2] = 1;
+		}
+		else
+			draw_text(450, 85, "I'm not sure about that...");
+	}
+	
+	if global.text == 55
+		draw_text(450, 85, "Thanks, I'll head down to reach the western\n grass fields.");
+	else if global.text == 56
+		draw_text(450, 85, "Thanks, when the sun sets at 6:35\n I'll head west.");
+	else if global.text == 57
+		draw_text(450, 85, "Thanks, I'll head north toward the\n sewer at 6:35");
+	
 	if (global.text == 13) {
-		draw_text(450, 100, "The treasure room behind me might have something that can \nhelp you, but not just anyone can enter.");
+		draw_text(450, 85, "The treasure room behind me might have something that can \nhelp you, but not just anyone can enter.");
 	}
 	if (global.text == 14) {
-		draw_text(450, 100, "Help out all my friends here to gain their trust, \nthen I'm sure you'll be welcomed as one of us");
+		draw_text(450, 85, "Help out all my friends here to gain their trust, \nthen I'm sure you'll be welcomed as one of us");
+	}
+	if (global.text == 15) {
+		draw_text(450, 85, "Wow! Looks like you've helped everyone out. \nFeel free to enter the treasure room :)");
 	}
 	
 }

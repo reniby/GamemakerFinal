@@ -37,6 +37,13 @@ if mouse_check_button_pressed(mb_left) {
 		global.text = 8;
 	else if (global.text == 13)
 		global.text = 14;
+	else if global.text > 9 && global.text < 13{
+	}
+	else if (global.text == 50) || (global.text == 51) || (global.text == 52) {
+		for (i=0; i<5; i+=1)
+			response[i] = 0;
+		global.text = 0;
+	}
 	else if (global.text != 0)
 		global.text = 0;
 	
@@ -58,16 +65,56 @@ if mouse_check_button_pressed(mb_left) {
 	//---------------------------------------------------------------------------
 	
 	if collision_point(mouse_x, mouse_y, cat1, true, true) { //Arguments are (x, y, obj, prec, notme)
-        global.text = 10;
+        if (global.catAnswers[0] == 0)
+			global.text = 10;
+		else
+			global.text = 55;
     }
 	if collision_point(mouse_x, mouse_y, cat2, true, true) { //Arguments are (x, y, obj, prec, notme)
-        global.text = 11;
+        if (global.catAnswers[1] == 0)
+			global.text = 11;
+		else
+			global.text = 56;
     }
 	if collision_point(mouse_x, mouse_y, cat3, true, true) { //Arguments are (x, y, obj, prec, notme)
-        global.text = 12;
+        if (global.catAnswers[2] == 0)
+			global.text = 12;
+		else
+			global.text = 57;
     }
 	if collision_point(mouse_x, mouse_y, scruff2, true, true) { //Arguments are (x, y, obj, prec, notme)
-        global.text = 13;
+        complete = true;
+		for (i=0; i<2; i++){
+			if (global.catAnswers[i] == 0)
+				complete = false;
+		}
+		if (complete == true)
+			global.text = 15; //welcome!
+		else
+			global.text = 13; //speech on trust
     }
 	
+	if global.text > 9 && global.text < 13 {
+		if point_in_rectangle(mouse_x, mouse_y, 500, 215, 580, 245) { 
+			response[0] = 1;
+			global.text += 40;
+	    }
+		else if point_in_rectangle(mouse_x, mouse_y, 600, 215, 680, 245) { 
+			response[1] = 1;
+			global.text += 40;
+	    }
+		else if point_in_rectangle(mouse_x, mouse_y, 700, 215, 780, 245) { 
+			response[2] = 1;
+			global.text += 40;
+	    }
+		else if point_in_rectangle(mouse_x, mouse_y, 800, 215, 880, 245) { 
+			response[3] = 1;
+			global.text += 40;
+	    }
+		else if point_in_rectangle(mouse_x, mouse_y, 620, 255, 700, 285) { 
+			response[4] = 1;
+			global.text += 40;
+	    }
+		
+	}
 }

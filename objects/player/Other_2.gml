@@ -14,5 +14,8 @@ global.haveTreasure = false;
 //animation booleans
 global.dropNecklace = 0;
 
-//rrom booleans
+//room booleans
 global.catUnlocked = false;
+
+global.catAnswers = [0, 0, 0];
+global.complete = false;
