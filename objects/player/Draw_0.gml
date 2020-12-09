@@ -14,7 +14,7 @@ else if room == CatRoom && global.artFound[1] == 0 {
 	art1.image_yscale = 1.5;
 }
 else if room == MouseRoom && global.artFound[2] == 0 {
-	art1 = instance_create_layer(1266, 41, layer, obj_artpiece);
+	art1 = instance_create_layer(1316, 41, layer, obj_artpiece);
 	art1.image_xscale = 1.5;
 	art1.image_yscale = 1.5;
 }
@@ -221,18 +221,51 @@ if (global.text != 0){
 		draw_text(450, 75, "Hey, thanks again for your help.\nLet me know if you need something");
 	else if global.text == 27
 		draw_text(450, 75, "Why did you kick the pipe??\nAre you trying to make it burst??    Yes    No");
+	else if global.text == 30 {
+		draw_text(450, 75, "Oh. You probably want to clog it then first.\nTry using this");
+		global.haveCheese = true;
+	}
+	else if global.text == 31
+		draw_text(450, 75, "*Large wheel of cheese received*");
+	else if global.text == 32 {
+		draw_text(450, 75, "*The pipe is now clogged*");
+		global.clogged = true;
+		global.haveCheese = false;
+	}
 	else if global.text == 24
 		draw_text(450, 75, "This area is blocked by a pile of old wood");
 	else if global.text == 22
 		draw_text(450, 75, "Would you like to kick the pipe?    Yes    No    ");
-	else if global.text == 29 {
+	else if global.text == 29  && global.clogged == false {
 		draw_text(450, 75, "You kicked the pipe. Nothing happened.");
 		global.kicked = true;
 	}
+	else if global.text == 29  && global.clogged == true {
+		draw_sprite_ext(waterAnim, -1, 0, 0, 2.2, 2.2, 0, c_white, 1);
+		sprite_delete(cheese);
+		mouse2.visible = false;
+		global.scruffs = true;
+		instance_destroy(inst_C329011);
+		sprite_delete(Sprite22);
+		draw_set_colour(c_orange);
+		draw_rectangle(370, 60, 1000, 150, false);
+		draw_set_colour(c_black);
+		draw_rectangle(370, 60, 1000, 150, true);
+		draw_text(450, 75, "The water suddenly explodes from the pipe,\nwashing away the cheese and any wood in its path");
+	}
+	else if global.text == 33
+		draw_text(450, 75, "*New area unlocked*");
 	else if global.text == 28
-		draw_text(450, 75, "Would you like to clog the pipe with the cheese?    Yes    No");
+		draw_text(450, 75, "Would you like to clog the pipe with the cheese?   \nYes    No");
 	else if global.text == 25
 		draw_text(450, 75, "That's my house. I had to move it to this \nside because the pipe bursts sometimes and \nwashed away my old house");
+
+	if global.text > 100 {
+		if mouse_check_button_pressed(mb_left) {
+			draw_text(450, 75, "test");
+		}
+	}
+
 }
 
 

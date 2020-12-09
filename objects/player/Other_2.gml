@@ -20,6 +20,8 @@ global.dropNecklace = 0;
 global.catUnlocked = false;
 global.sewer = true;
 global.kicked = false;
+global.clogged = false;
+global.scruffs = false;
 
 //art
 global.catAnswers = [0, 0, 0];

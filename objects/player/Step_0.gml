@@ -32,12 +32,26 @@ else if room == CatRoom {
 }
 
 
+if room == MouseRoom {
+	if global.clogged == true
+		obj_cheese.visible = true;
+	else
+		obj_cheese.visible = false;
+}
+
 if mouse_check_button_pressed(mb_left) {		
 			
 	if (global.text == 5)
 		global.text = 6;
 	else if (global.text == 6)
 		global.text = 7;
+	else if (global.text == 30)
+		global.text = 31;
+	else if global.text == 29  && global.clogged == true {
+		global.text = 33;
+		global.clogged = false;
+		mouse2.visible = true;
+	}
 	else if (global.text == 3) && global.haveTreasure == true
 		global.text = 8;
 	else if (global.text == 13)
@@ -158,7 +172,8 @@ if mouse_check_button_pressed(mb_left) {
 		
 	//0 nothing, 1 house, 2 pipe, 3 ladder, 4 wood
 	if room == MouseRoom {
-		if collision_point(mouse_x, mouse_y, mouse2, true, true) && global.kicked == false
+			
+		if collision_point(mouse_x, mouse_y, mouse2, true, true) && global.kicked == false || collision_point(mouse_x, mouse_y, mouse2, true, true) && global.scruffs == true
 			global.text = 26;
 		else if collision_point(mouse_x, mouse_y, mouse2, true, true) && global.kicked == true
 			global.text = 27;
@@ -181,8 +196,16 @@ if mouse_check_button_pressed(mb_left) {
 			global.text = 29;
 		else if global.text == 22
 			global.text = 0;
+		else if global.text == 27 && point_in_rectangle(mouse_x, mouse_y, 780, 95, 815, 120)
+			global.text = 30;
+		else if global.text == 28 && point_in_rectangle(mouse_x, mouse_y, 449, 99, 481, 118)
+			global.text = 32;
+			//show_debug_message(string(mouse_x) + " " + string(mouse_y));
 		else if collision_point(mouse_x, mouse_y, collisions, true, true)
 			global.text = 25;
 		
 	}
+
+	if collision_point(x, y, obj_warp, true, false) && global.scruffs == true 
+		global.text = 101;
 }
