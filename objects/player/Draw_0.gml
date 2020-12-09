@@ -160,11 +160,11 @@ if (global.text != 0){
 	}
 	
 	if global.text == 55
-		draw_text(450, 85, "Thanks, I'll head down to reach the western\n grass fields.");
+		draw_text(450, 85, "Thanks, I'll head down to reach the western\ngrass fields.");
 	else if global.text == 56
-		draw_text(450, 85, "Thanks, when the sun sets at 6:35\n I'll head west.");
+		draw_text(450, 85, "Thanks, when the sun sets at 6:35\nI'll head west.");
 	else if global.text == 57
-		draw_text(450, 85, "Thanks, I'll head north toward the\n sewer at 6:35");
+		draw_text(450, 85, "Thanks, I'll head north toward the\nsewer at 6:35");
 	
 	if (global.text == 13) {
 		draw_text(450, 85, "The treasure room behind me might have something that can \nhelp you, but not just anyone can enter.");
@@ -173,8 +173,25 @@ if (global.text != 0){
 		draw_text(450, 85, "Help out all my friends here to gain their trust, \nthen I'm sure you'll be welcomed as one of us");
 	}
 	if (global.text == 15) {
-		draw_text(450, 85, "Wow! Looks like you've helped everyone out. \nFeel free to enter the treasure room :)");
+		draw_text(450, 85, "Wow! Looks like you've helped everyone out. \nWhy don't you take a look inside");
 	}
+	if (global.text == 16) {		
+		cat1.visible = false;
+		cat2.visible = false;
+		cat3.visible = false;
+		
+		draw_sprite_ext(treasureAnim, -1, 0, 0, 2.2, 2.2, 0, c_white, 1);
+		
+		draw_set_colour(c_orange);
+		draw_rectangle(370, 60, 1000, 150, false);
+		draw_set_colour(c_black);
+		draw_rectangle(370, 60, 1000, 150, true);
+
+		sprite_delete(spr_scruff2);
+		draw_text(450, 75, "As you marvel at the cats' treasure, you\nspot a small golden key and decide to\nbring it with you.");
+	}
+	
+	
 	
 }
 

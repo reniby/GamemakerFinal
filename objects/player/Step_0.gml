@@ -39,6 +39,14 @@ if mouse_check_button_pressed(mb_left) {
 		global.text = 14;
 	else if global.text > 9 && global.text < 13{
 	}
+	else if global.text == 15 
+		global.text = 16;
+	else if global.text == 16 {
+		cat1.visible = true;
+		cat2.visible = true;
+		cat3.visible = true;
+		global.text = 0;
+	}
 	else if (global.text == 50) || (global.text == 51) || (global.text == 52) {
 		for (i=0; i<5; i+=1)
 			response[i] = 0;

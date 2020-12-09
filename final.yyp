@@ -28,6 +28,7 @@
     {"id":{"name":"Object2","path":"objects/Object2/Object2.yy",},"order":1,},
     {"id":{"name":"Sprite1217","path":"sprites/Sprite1217/Sprite1217.yy",},"order":16,},
     {"id":{"name":"scruff","path":"objects/scruff/scruff.yy",},"order":0,},
+    {"id":{"name":"treasureAnim","path":"sprites/treasureAnim/treasureAnim.yy",},"order":18,},
     {"id":{"name":"spr_scruff","path":"sprites/spr_scruff/spr_scruff.yy",},"order":0,},
     {"id":{"name":"Sprite14","path":"sprites/Sprite14/Sprite14.yy",},"order":13,},
     {"id":{"name":"scruff2","path":"objects/scruff2/scruff2.yy",},"order":12,},
