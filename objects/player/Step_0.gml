@@ -45,7 +45,7 @@ if mouse_check_button_pressed(mb_left) {
 		cat1.visible = true;
 		cat2.visible = true;
 		cat3.visible = true;
-		global.text = 0;
+		global.text = 17;
 	}
 	else if (global.text == 50) || (global.text == 51) || (global.text == 52) {
 		for (i=0; i<5; i+=1)
@@ -55,9 +55,12 @@ if mouse_check_button_pressed(mb_left) {
 	else if (global.text != 0)
 		global.text = 0;
 	
-    if collision_point(mouse_x, mouse_y, mouse, true, true) { //Arguments are (x, y, obj, prec, notme)
+    if collision_point(mouse_x, mouse_y, mouse, true, true) && global.haveKey == false { //Arguments are (x, y, obj, prec, notme)
         global.text = 1;
     }
+	else if collision_point(mouse_x, mouse_y, mouse, true, true) && global.haveKey == true
+		global.text = 20;
+	
 	if collision_point(mouse_x, mouse_y, human, true, true) { //Arguments are (x, y, obj, prec, notme)
         global.text = 2;
     }

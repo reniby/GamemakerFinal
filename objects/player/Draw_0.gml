@@ -32,6 +32,12 @@ if (global.text != 0){
 	
 	if (global.text == 1)
 		draw_text(450, 650, "I need a key to open this sewer");
+	else if global.text == 20 {
+		draw_text(450, 650, "Wow! You found it!");
+		sprite_delete(Sprite420);
+		sprite_delete(spr_mouse);
+		//575-->695, 0-->69
+	}
 		
 	else if ((global.text == 2) && (global.haveGlasses = true) || global.text ==5) {
 		draw_text(450, 650, "You found my glasses!");
@@ -116,10 +122,6 @@ if (global.text != 0){
 	}
 	
 	if (global.text == 50) { //2
-		draw_set_colour(c_orange);
-		draw_rectangle(370, 160, 1000, 285, false);
-		draw_set_colour(c_black);
-		draw_rectangle(370, 160, 1000, 285, true);
 		if (response[4] == 1)
 			draw_text(450, 85, "That's ok...");
 		else if (response[1] == 1) {
@@ -131,10 +133,6 @@ if (global.text != 0){
 		
 	}
 	else if (global.text == 51) { //4
-		draw_set_colour(c_orange);
-		draw_rectangle(370, 160, 1000, 285, false);
-		draw_set_colour(c_black);
-		draw_rectangle(370, 160, 1000, 285, true);
 		if (response[4] == 1)
 			draw_text(450, 85, "That's ok...");
 		else if (response[3] == 1) {
@@ -145,10 +143,6 @@ if (global.text != 0){
 			draw_text(450, 85, "I'm not sure about that...");
 	}
 	else if (global.text == 52) { //3
-		draw_set_colour(c_orange);
-		draw_rectangle(370, 160, 1000, 285, false);
-		draw_set_colour(c_black);
-		draw_rectangle(370, 160, 1000, 285, true);
 		if (response[4] == 1)
 			draw_text(450, 85, "That's ok...");
 		else if (response[2] == 1) {
@@ -189,7 +183,10 @@ if (global.text != 0){
 
 		sprite_delete(spr_scruff2);
 		draw_text(450, 75, "As you marvel at the cats' treasure, you\nspot a small golden key and decide to\nbring it with you.");
+		global.haveKey = true;
 	}
+	if global.text == 17
+		draw_text(450, 75, "*Sewer key received!*");
 	
 	
 	

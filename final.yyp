@@ -4,6 +4,7 @@
     {"id":{"name":"glasses","path":"objects/glasses/glasses.yy",},"order":7,},
     {"id":{"name":"kneelingAnimation","path":"sprites/kneelingAnimation/kneelingAnimation.yy",},"order":8,},
     {"id":{"name":"spr_beforeGlasses","path":"sprites/spr_beforeGlasses/spr_beforeGlasses.yy",},"order":6,},
+    {"id":{"name":"spr_mouse2","path":"sprites/spr_mouse2/spr_mouse2.yy",},"order":20,},
     {"id":{"name":"Sprite4","path":"sprites/Sprite4/Sprite4.yy",},"order":4,},
     {"id":{"name":"mouse","path":"objects/mouse/mouse.yy",},"order":4,},
     {"id":{"name":"cat1","path":"objects/cat1/cat1.yy",},"order":9,},
@@ -33,6 +34,7 @@
     {"id":{"name":"Sprite14","path":"sprites/Sprite14/Sprite14.yy",},"order":13,},
     {"id":{"name":"scruff2","path":"objects/scruff2/scruff2.yy",},"order":12,},
     {"id":{"name":"Sprite2","path":"sprites/Sprite2/Sprite2.yy",},"order":2,},
+    {"id":{"name":"Sprite420","path":"sprites/Sprite420/Sprite420.yy",},"order":19,},
     {"id":{"name":"MainRoom","path":"rooms/MainRoom/MainRoom.yy",},"order":0,},
   ],
   "Options": [

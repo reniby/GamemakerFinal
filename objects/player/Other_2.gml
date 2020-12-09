@@ -10,6 +10,7 @@ global.text = 0;
 //inventory booleans
 global.haveGlasses = false;
 global.haveTreasure = false;
+global.haveKey = false;
 
 //animation booleans
 global.dropNecklace = 0;
@@ -19,3 +20,6 @@ global.catUnlocked = false;
 
 global.catAnswers = [0, 0, 0];
 global.complete = false;
+
+global.artPieces = [0, 0, 0, 0];
+global.allFound = false;
