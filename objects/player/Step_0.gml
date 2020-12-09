@@ -1,6 +1,11 @@
 /// @description Insert description here
 // You can write your code in this editor
 
+if room == MainRoom && global.artPieces == 4 && global.text < 60 || global.text == 100{
+	global.text = 60;
+}
+
+
 if keyboard_check(ord("A")) && x > 35 {
 	x -= 5;
 	sx = -3;
@@ -31,6 +36,10 @@ else if room == CatRoom {
 	}
 }
 
+if room == ScruffsRoom && global.artFound[3] == 0 && global.text < 100
+	global.text = 101;
+else if room == ScruffsRoom && global.text < 100
+	global.text = 106;
 
 if room == MouseRoom {
 	if global.clogged == true
@@ -40,8 +49,35 @@ if room == MouseRoom {
 }
 
 if mouse_check_button_pressed(mb_left) {		
-			
-	if (global.text == 5)
+	
+	if global.text == -5 {
+		global.text = 0
+		glasses.visible = true;
+	}
+	else if global.text == 62
+		global.text = 62;
+	else if global.text > 59 
+		global.text += 1;
+	else if global.text < 0 
+		global.text -= 1;
+	else if global.text == 103 {
+		global.text += 1;
+		global.artPieces += 1;
+	}
+	else if global.text == 105 {
+		room_goto(MouseRoom);
+		global.text = 0;
+	}
+	else if global.text == 106
+		global.text = 107;
+	else if global.text == 107 {
+		room_goto(MouseRoom);
+		global.text = 0;
+	}
+	else if global.text > 100 {
+		global.text += 1;
+	}
+	else if (global.text == 5)
 		global.text = 6;
 	else if (global.text == 6)
 		global.text = 7;
@@ -56,7 +92,7 @@ if mouse_check_button_pressed(mb_left) {
 		global.text = 8;
 	else if (global.text == 13)
 		global.text = 14;
-	else if global.text > 9 && global.text < 13 || global.text == 21 || global.text == 23 || global.text == 22 || global.text == 27 || global.text == 28{
+	else if global.text > 9 && global.text < 13 || global.text == 21 || global.text == 23 || global.text == 22 || global.text == 27 || global.text == 28 || global.text == 63 {
 	}
 	else if global.text == 15 
 		global.text = 16;
@@ -200,12 +236,8 @@ if mouse_check_button_pressed(mb_left) {
 			global.text = 30;
 		else if global.text == 28 && point_in_rectangle(mouse_x, mouse_y, 449, 99, 481, 118)
 			global.text = 32;
-			//show_debug_message(string(mouse_x) + " " + string(mouse_y));
 		else if collision_point(mouse_x, mouse_y, collisions, true, true)
 			global.text = 25;
 		
 	}
-
-	if collision_point(x, y, obj_warp, true, false) && global.scruffs == true 
-		global.text = 101;
 }

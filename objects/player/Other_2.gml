@@ -4,7 +4,7 @@
 x = 380;
 y = 660;
 
-global.text = 0;
+global.text = -1;
 
 
 //inventory booleans
@@ -18,7 +18,7 @@ global.dropNecklace = 0;
 
 //room booleans
 global.catUnlocked = false;
-global.sewer = true;
+global.sewer = false;
 global.kicked = false;
 global.clogged = false;
 global.scruffs = false;
@@ -28,6 +28,5 @@ global.catAnswers = [0, 0, 0];
 global.cutscene = false;
 global.complete = false;
 
-global.artPieces = 0;
+global.artPieces = 3;
 global.artFound = [0,0,0,0];
-global.allFound = false;

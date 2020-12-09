@@ -261,9 +261,56 @@ if (global.text != 0){
 		draw_text(450, 75, "That's my house. I had to move it to this \nside because the pipe bursts sometimes and \nwashed away my old house");
 
 	if global.text > 100 {
-		if mouse_check_button_pressed(mb_left) {
-			draw_text(450, 75, "test");
+		if global.text != 107 {
+			draw_set_colour(c_orange);
+			draw_rectangle(370, 620, 1000, 730, false);
+			draw_set_colour(c_black);
+			draw_rectangle(370, 620, 1000, 730, true);
 		}
+		if global.text == 101
+			draw_text(450, 650, "Ah. You found me again.");
+		if global.text == 102
+			draw_text(450, 650, "I like to come sit in the field out here, \nit's quite beautiful");
+		if global.text == 103
+			draw_text(450, 650, "Oh, while walking around I found this, is this\nwhat you've been looking for?");
+		if global.text == 104 {
+			draw_text(450, 650, "*Art piece received*\n" + string(4 - global.artPieces) + " pieces left to find");
+			global.artFound[3] = 1;
+		}
+		if global.text == 105 {
+			draw_text(450, 650, "Feel free to come visit me here anytime, \nand good luck");
+		}
+		if global.text == 106
+			draw_text(450, 650, "Hello again. Would you like to sit here with me?\nWe don't have to talk");
+	}
+	else if global.text > 59 {
+		show_debug_message(string(global.text));
+		if global.text == 60
+			draw_sprite_ext(end1, -1, 0, 0, 2.2, 2.2, 0, c_white, 1);
+		else if global.text == 61
+			draw_sprite_ext(end2, -1, 0, 0, 2.2, 2.2, 0, c_white, 1);
+		else if global.text == 62
+			draw_sprite_ext(end3, -1, 0, 0, 2.2, 2.2, 0, c_white, 1);
+	}
+	
+	
+	if global.text < 0 {
+		glasses.visible = false;
+		draw_sprite_ext(intro, -1, 0, 0, 6, 6, 0, c_white, 1);
+		draw_set_colour(c_orange);
+		draw_rectangle(370, 620, 1000, 730, false);
+		draw_set_colour(c_black);
+		draw_rectangle(370, 620, 1000, 730, true);
+		if global.text == -1
+			draw_text(450, 650, "As you lounge on your front lawn, you hear\nyour owner frantically searching through your house");
+		if global.text == -2
+			draw_text(450, 650, "Her art class' final is tommorow, and she has\nlost all of her artwork!");
+		if global.text == -3
+			draw_text(450, 650, "She had it all when she left school, but it must've\nfallen out of her folder as she walked home");
+		if global.text == -4
+			draw_text(450, 650, "It's your job to find all of her artwork!\nYou can move with WASD, and interact with\nobjects and creatures using your mouse.");
+		if global.text == -5
+			draw_text(450, 650, "Good luck!");
 	}
 
 }
