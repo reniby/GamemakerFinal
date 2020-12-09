@@ -21,9 +21,6 @@ global.catUnlocked = false;
 global.sewer = true;
 global.kicked = false;
 
-//sewer collisions
-global.sColl = 0; //0 nothing, 1 house, 2 pipe, 3 ladder, 4 wood
-
 //art
 global.catAnswers = [0, 0, 0];
 global.cutscene = false;

@@ -181,7 +181,7 @@ if (global.text != 0){
 	else if global.text == 56
 		draw_text(450, 85, "Thanks, when the sun sets at 6:35\nI'll head west.");
 	else if global.text == 57
-		draw_text(450, 85, "Thanks, I'll head north toward the\nsewer at 6:35");
+		draw_text(450, 85, "Thanks, I'll head north toward the\nalley's entrance at 6:35");
 	
 	if (global.text == 13) {
 		draw_text(450, 85, "The treasure room behind me might have something that can \nhelp you, but not just anyone can enter.");
@@ -211,8 +211,28 @@ if (global.text != 0){
 	if global.text == 17
 		draw_text(450, 75, "*Sewer key received!*");
 	
+	//26 kicked false, 27 kicked, 24 wood, 22 pipe no cheese, 28 pipe cheese, 25 house
 	if global.text == 21
 		draw_text(450, 650, "Click this area again to enter sewer,\nclick out to cancel");
+	else if global.text == 23 {
+		draw_text(450, 75, "Click this area again to exit sewer,\nclick out to cancel");
+	}
+	else if global.text == 26
+		draw_text(450, 75, "Hey, thanks again for your help.\nLet me know if you need something");
+	else if global.text == 27
+		draw_text(450, 75, "Why did you kick the pipe??\nAre you trying to make it burst??    Yes    No");
+	else if global.text == 24
+		draw_text(450, 75, "This area is blocked by a pile of old wood");
+	else if global.text == 22
+		draw_text(450, 75, "Would you like to kick the pipe?    Yes    No    ");
+	else if global.text == 29 {
+		draw_text(450, 75, "You kicked the pipe. Nothing happened.");
+		global.kicked = true;
+	}
+	else if global.text == 28
+		draw_text(450, 75, "Would you like to clog the pipe with the cheese?    Yes    No");
+	else if global.text == 25
+		draw_text(450, 75, "That's my house. I had to move it to this \nside because the pipe bursts sometimes and \nwashed away my old house");
 }
 
 

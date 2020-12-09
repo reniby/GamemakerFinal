@@ -42,7 +42,7 @@ if mouse_check_button_pressed(mb_left) {
 		global.text = 8;
 	else if (global.text == 13)
 		global.text = 14;
-	else if global.text > 9 && global.text < 13 || global.text == 21{
+	else if global.text > 9 && global.text < 13 || global.text == 21 || global.text == 23 || global.text == 22 || global.text == 27 || global.text == 28{
 	}
 	else if global.text == 15 
 		global.text = 16;
@@ -158,20 +158,31 @@ if mouse_check_button_pressed(mb_left) {
 		
 	//0 nothing, 1 house, 2 pipe, 3 ladder, 4 wood
 	if room == MouseRoom {
-		//collision_point(mouse_x, mouse_y, mouse2, true, true) && global.kicked == false
-		//collision_point(mouse_x, mouse_y, mouse2, true, true) && global.kicked == true
+		if collision_point(mouse_x, mouse_y, mouse2, true, true) && global.kicked == false
+			global.text = 26;
+		else if collision_point(mouse_x, mouse_y, mouse2, true, true) && global.kicked == true
+			global.text = 27;
 		
-		if global.sColl = 2 
-			global.text = 22;
-		//pipe (2 options, have cheese wheel dont)
-		else if global.sColl = 4
+		if collision_point(mouse_x, mouse_y, collisions, true, true) && mouse_x < 237
 			global.text = 24;
-		//point_in_rectangle(mouse_x, mouse_y, 575, 0, 695, 69) wood, blocks path
-		else if global.sColl = 1
-			global.text = 25;
-		//point_in_rectangle(mouse_x, mouse_y, 575, 0, 695, 69) that's my house
-		else if global.sColl = 3
+		else if collision_point(mouse_x, mouse_y, collisions, true, true) && mouse_x < 471 && global.haveCheese == false
+			global.text = 22;
+		else if collision_point(mouse_x, mouse_y, collisions, true, true) && mouse_x < 471 && global.haveCheese == true
+			global.text = 28;
+		else if collision_point(mouse_x, mouse_y, collisions, true, true) && mouse_x < 700 && global.text != 23
 			global.text = 23;
-		//ladder: same system as entering, click again
+		else if collision_point(mouse_x, mouse_y, collisions, true, true) && mouse_x < 700 && global.text == 23 {
+			room_goto(MainRoom);
+			global.text = 0;
+		}
+		else if global.text == 23
+			global.text = 0;
+		else if global.text == 22 && point_in_rectangle(mouse_x, mouse_y, 770, 75, 805, 90)
+			global.text = 29;
+		else if global.text == 22
+			global.text = 0;
+		else if collision_point(mouse_x, mouse_y, collisions, true, true)
+			global.text = 25;
+		
 	}
 }
