@@ -4,10 +4,14 @@
 if keyboard_check(ord("A")) && x > 35 {
 	x -= 5;
 	sx = -3;
+	if room == MouseRoom
+		sx = -4;
 }
 if keyboard_check(ord("D")) && x < room_width - 40 {
 	x += 5;
 	sx = 3;
+	if room == MouseRoom
+		sx = 4;
 }
 
 if room == MainRoom || room == MouseRoom {
@@ -28,17 +32,7 @@ else if room == CatRoom {
 }
 
 
-if mouse_check_button_pressed(mb_left) {
-	if point_in_rectangle(mouse_x, mouse_y, 575, 0, 695, 69) && global.text != 21 && global.sewer == true{
-		global.text = 21;
-	}
-	else if point_in_rectangle(mouse_x, mouse_y, 575, 0, 695, 69) && global.text == 21{
-		room_goto(MouseRoom);
-		global.text = 0;
-	}
-	else if global.text == 21 
-		global.text = 0;
-		
+if mouse_check_button_pressed(mb_left) {		
 			
 	if (global.text == 5)
 		global.text = 6;
@@ -66,7 +60,21 @@ if mouse_check_button_pressed(mb_left) {
 	else if (global.text != 0)
 		global.text = 0;
 	
-    if collision_point(mouse_x, mouse_y, mouse, true, true) && global.haveKey == false { //Arguments are (x, y, obj, prec, notme)
+    
+	if collision_point(mouse_x, mouse_y, obj_artpiece, true, true) { //Arguments are (x, y, obj, prec, notme)
+        global.text = 100;
+		instance_destroy(obj_artpiece);
+		global.artPieces += 1;
+		if room == MainRoom
+			global.artFound[0] = 1;
+		else if room == CatRoom
+			global.artFound[1] = 1;
+		else if room == MouseRoom && global.cutscene == false
+			global.artFound[2] = 1;
+		else if global.cutscene == true
+			global.artFound[3] = 1;
+    }
+	else if collision_point(mouse_x, mouse_y, mouse, true, true) && global.haveKey == false { //Arguments are (x, y, obj, prec, notme)
         global.text = 1;
     }
 	else if collision_point(mouse_x, mouse_y, mouse, true, true) && global.haveKey == true
@@ -136,10 +144,34 @@ if mouse_check_button_pressed(mb_left) {
 		else if point_in_rectangle(mouse_x, mouse_y, 620, 255, 700, 285) { 
 			response[4] = 1;
 			global.text += 40;
-	    }
+	    }	
+	}
+	if room == MainRoom && point_in_rectangle(mouse_x, mouse_y, 575, 0, 695, 69) && global.text != 21 && global.sewer == true{
+		global.text = 21;
+	}
+	else if point_in_rectangle(mouse_x, mouse_y, 575, 0, 695, 69) && global.text == 21{
+		room_goto(MouseRoom);
+		global.text = 0;
+	}
+	else if global.text == 21 
+		global.text = 0;
 		
-		//-------------------------------------------------------------------------
+	//0 nothing, 1 house, 2 pipe, 3 ladder, 4 wood
+	if room == MouseRoom {
+		//collision_point(mouse_x, mouse_y, mouse2, true, true) && global.kicked == false
+		//collision_point(mouse_x, mouse_y, mouse2, true, true) && global.kicked == true
 		
-		
+		if global.sColl = 2 
+			global.text = 22;
+		//pipe (2 options, have cheese wheel dont)
+		else if global.sColl = 4
+			global.text = 24;
+		//point_in_rectangle(mouse_x, mouse_y, 575, 0, 695, 69) wood, blocks path
+		else if global.sColl = 1
+			global.text = 25;
+		//point_in_rectangle(mouse_x, mouse_y, 575, 0, 695, 69) that's my house
+		else if global.sColl = 3
+			global.text = 23;
+		//ladder: same system as entering, click again
 	}
 }

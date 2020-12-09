@@ -10,17 +10,25 @@ global.text = 0;
 //inventory booleans
 global.haveGlasses = false;
 global.haveTreasure = false;
-global.haveKey = true;
+global.haveKey = false;
+global.haveCheese = false;
 
 //animation booleans
 global.dropNecklace = 0;
 
 //room booleans
 global.catUnlocked = false;
-global.sewer = false;
+global.sewer = true;
+global.kicked = false;
 
+//sewer collisions
+global.sColl = 0; //0 nothing, 1 house, 2 pipe, 3 ladder, 4 wood
+
+//art
 global.catAnswers = [0, 0, 0];
+global.cutscene = false;
 global.complete = false;
 
-global.artPieces = [0, 0, 0, 0];
+global.artPieces = 0;
+global.artFound = [0,0,0,0];
 global.allFound = false;

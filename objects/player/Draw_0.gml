@@ -3,6 +3,22 @@
 
 draw_sprite_ext(spr_player, -1, x, y, sx, sy, 0, c_white, 1);
 
+if room == MainRoom && global.artFound[0] == 0 {
+	art1 = instance_create_layer(101, 54, layer, obj_artpiece);
+	art1.image_xscale = 1.5;
+	art1.image_yscale = 1.5;
+}
+else if room == CatRoom && global.artFound[1] == 0 {
+	art1 = instance_create_layer(778, 409, layer, obj_artpiece);
+	art1.image_xscale = 1.5;
+	art1.image_yscale = 1.5;
+}
+else if room == MouseRoom && global.artFound[2] == 0 {
+	art1 = instance_create_layer(1266, 41, layer, obj_artpiece);
+	art1.image_xscale = 1.5;
+	art1.image_yscale = 1.5;
+}
+
 if (global.dropNecklace == 1) {
 	draw_sprite_ext(kneelingAnimation, -1, 0, 0, 2.2, 2.2, 0, c_white, 1);
 }
@@ -23,7 +39,7 @@ if (global.text != 0){
 		draw_set_colour(c_black);
 		draw_rectangle(370, 620, 1000, 730, true);
 	}
-	else if room == CatRoom {
+	else if room == CatRoom || room == MouseRoom {
 		draw_set_colour(c_orange);
 		draw_rectangle(370, 60, 1000, 150, false);
 		draw_set_colour(c_black);
@@ -37,6 +53,13 @@ if (global.text != 0){
 		sprite_delete(Sprite420);
 		sprite_delete(spr_mouse);
 		global.sewer = true;
+	}
+	else if global.text == 100 {
+		if room == CatRoom || room == MouseRoom
+			temp = 85;
+		else
+			temp = 650;
+		draw_text(450, temp, "Art piece found! " + string(4 - global.artPieces) + " pieces left to find");
 	}
 		
 	else if ((global.text == 2) && (global.haveGlasses = true) || global.text ==5) {
@@ -107,7 +130,7 @@ if (global.text != 0){
 		draw_text(620, 255, "I'm not sure..");
 	}
 	if (global.text == 12) {
-		draw_text(450, 85, "I’m meeting my buddy at the sewer a bit north of here \nat dusk, what time does the sun set?");
+		draw_text(450, 85, "I’m meeting my buddy at the alley's entrace a bit north \nof here at dusk, what time does the sun set?");
 		draw_set_colour(c_orange);
 		draw_rectangle(370, 160, 1000, 285, false);
 		draw_set_colour(c_black);
