@@ -1,5 +1,6 @@
 {
   "resources": [
+    {"id":{"name":"Sprite22","path":"sprites/Sprite22/Sprite22.yy",},"order":21,},
     {"id":{"name":"spr_player","path":"sprites/spr_player/spr_player.yy",},"order":1,},
     {"id":{"name":"glasses","path":"objects/glasses/glasses.yy",},"order":7,},
     {"id":{"name":"kneelingAnimation","path":"sprites/kneelingAnimation/kneelingAnimation.yy",},"order":8,},
@@ -25,9 +26,11 @@
     {"id":{"name":"Sprite12","path":"sprites/Sprite12/Sprite12.yy",},"order":11,},
     {"id":{"name":"CatRoom","path":"rooms/CatRoom/CatRoom.yy",},"order":1,},
     {"id":{"name":"spr_afterGlasses","path":"sprites/spr_afterGlasses/spr_afterGlasses.yy",},"order":9,},
+    {"id":{"name":"mouse2","path":"objects/mouse2/mouse2.yy",},"order":13,},
     {"id":{"name":"Sprite13","path":"sprites/Sprite13/Sprite13.yy",},"order":12,},
     {"id":{"name":"Object2","path":"objects/Object2/Object2.yy",},"order":1,},
     {"id":{"name":"Sprite1217","path":"sprites/Sprite1217/Sprite1217.yy",},"order":16,},
+    {"id":{"name":"MouseRoom","path":"rooms/MouseRoom/MouseRoom.yy",},"order":2,},
     {"id":{"name":"scruff","path":"objects/scruff/scruff.yy",},"order":0,},
     {"id":{"name":"treasureAnim","path":"sprites/treasureAnim/treasureAnim.yy",},"order":18,},
     {"id":{"name":"spr_scruff","path":"sprites/spr_scruff/spr_scruff.yy",},"order":0,},
@@ -51,6 +54,7 @@
   "RoomOrder": [
     {"name":"MainRoom","path":"rooms/MainRoom/MainRoom.yy",},
     {"name":"CatRoom","path":"rooms/CatRoom/CatRoom.yy",},
+    {"name":"MouseRoom","path":"rooms/MouseRoom/MouseRoom.yy",},
   ],
   "Folders": [
     {"folderPath":"folders/Sprites.yy","order":1,"resourceVersion":"1.0","name":"Sprites","tags":[],"resourceType":"GMFolder",},

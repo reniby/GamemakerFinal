@@ -36,7 +36,7 @@ if (global.text != 0){
 		draw_text(450, 650, "Wow! You found it!");
 		sprite_delete(Sprite420);
 		sprite_delete(spr_mouse);
-		//575-->695, 0-->69
+		global.sewer = true;
 	}
 		
 	else if ((global.text == 2) && (global.haveGlasses = true) || global.text ==5) {
@@ -188,8 +188,8 @@ if (global.text != 0){
 	if global.text == 17
 		draw_text(450, 75, "*Sewer key received!*");
 	
-	
-	
+	if global.text == 21
+		draw_text(450, 650, "Click this area again to enter sewer,\nclick out to cancel");
 }
 
 

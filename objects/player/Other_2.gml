@@ -10,13 +10,14 @@ global.text = 0;
 //inventory booleans
 global.haveGlasses = false;
 global.haveTreasure = false;
-global.haveKey = false;
+global.haveKey = true;
 
 //animation booleans
 global.dropNecklace = 0;
 
 //room booleans
 global.catUnlocked = false;
+global.sewer = false;
 
 global.catAnswers = [0, 0, 0];
 global.complete = false;

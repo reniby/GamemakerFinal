@@ -10,7 +10,7 @@ if keyboard_check(ord("D")) && x < room_width - 40 {
 	sx = 3;
 }
 
-if room == MainRoom {
+if room == MainRoom || room == MouseRoom {
 	if keyboard_check(ord("W")) && y > 20{
 		y -= 5;
 	}
@@ -29,6 +29,17 @@ else if room == CatRoom {
 
 
 if mouse_check_button_pressed(mb_left) {
+	if point_in_rectangle(mouse_x, mouse_y, 575, 0, 695, 69) && global.text != 21 && global.sewer == true{
+		global.text = 21;
+	}
+	else if point_in_rectangle(mouse_x, mouse_y, 575, 0, 695, 69) && global.text == 21{
+		room_goto(MouseRoom);
+		global.text = 0;
+	}
+	else if global.text == 21 
+		global.text = 0;
+		
+			
 	if (global.text == 5)
 		global.text = 6;
 	else if (global.text == 6)
@@ -37,7 +48,7 @@ if mouse_check_button_pressed(mb_left) {
 		global.text = 8;
 	else if (global.text == 13)
 		global.text = 14;
-	else if global.text > 9 && global.text < 13{
+	else if global.text > 9 && global.text < 13 || global.text == 21{
 	}
 	else if global.text == 15 
 		global.text = 16;
@@ -126,6 +137,9 @@ if mouse_check_button_pressed(mb_left) {
 			response[4] = 1;
 			global.text += 40;
 	    }
+		
+		//-------------------------------------------------------------------------
+		
 		
 	}
 }
