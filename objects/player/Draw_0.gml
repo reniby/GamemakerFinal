@@ -54,7 +54,7 @@ if (global.text != 0){
 		sprite_delete(spr_mouse);
 		global.sewer = true;
 	}
-	else if global.text == 100 {
+	else if global.text == 90 {
 		if room == CatRoom || room == MouseRoom
 			temp = 85;
 		else
@@ -261,6 +261,7 @@ if (global.text != 0){
 		draw_text(450, 75, "That's my house. I had to move it to this \nside because the pipe bursts sometimes and \nwashed away my old house");
 
 	if global.text > 100 {
+		show_debug_message(string(global.text));
 		if global.text != 107 {
 			draw_set_colour(c_orange);
 			draw_rectangle(370, 620, 1000, 730, false);
@@ -284,7 +285,6 @@ if (global.text != 0){
 			draw_text(450, 650, "Hello again. Would you like to sit here with me?\nWe don't have to talk");
 	}
 	else if global.text > 59 {
-		show_debug_message(string(global.text));
 		if global.text == 60
 			draw_sprite_ext(end1, -1, 0, 0, 2.2, 2.2, 0, c_white, 1);
 		else if global.text == 61

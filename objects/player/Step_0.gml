@@ -1,7 +1,7 @@
 /// @description Insert description here
 // You can write your code in this editor
 
-if room == MainRoom && global.artPieces == 4 && global.text < 60 || global.text == 100{
+if room == MainRoom && global.artPieces == 4 && global.text < 60 || room == MainRoom && global.artPieces == 4 && global.text == 100{
 	global.text = 60;
 }
 
@@ -54,19 +54,21 @@ if mouse_check_button_pressed(mb_left) {
 		global.text = 0
 		glasses.visible = true;
 	}
+	else if global.text == 90
+		global.text = 0;
 	else if global.text == 62
 		global.text = 62;
-	else if global.text > 59 
+	else if global.text > 59 && global.text < 100
 		global.text += 1;
 	else if global.text < 0 
 		global.text -= 1;
 	else if global.text == 103 {
-		global.text += 1;
+		global.text = 104;
 		global.artPieces += 1;
 	}
 	else if global.text == 105 {
-		room_goto(MouseRoom);
 		global.text = 0;
+		room_goto(MouseRoom);
 	}
 	else if global.text == 106
 		global.text = 107;
@@ -112,7 +114,7 @@ if mouse_check_button_pressed(mb_left) {
 	
     
 	if collision_point(mouse_x, mouse_y, obj_artpiece, true, true) { //Arguments are (x, y, obj, prec, notme)
-        global.text = 100;
+        global.text = 90;
 		instance_destroy(obj_artpiece);
 		global.artPieces += 1;
 		if room == MainRoom

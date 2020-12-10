@@ -28,5 +28,5 @@ global.catAnswers = [0, 0, 0];
 global.cutscene = false;
 global.complete = false;
 
-global.artPieces = 3;
+global.artPieces = 0;
 global.artFound = [0,0,0,0];
